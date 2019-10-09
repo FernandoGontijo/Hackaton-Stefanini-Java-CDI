@@ -1,0 +1,28 @@
+package com.stefanini.hackaton.rest.persistence;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.inject.Singleton;
+
+import com.stefanini.hackaton.rest.entidades.Conta;
+import com.stefanini.hackaton.rest.entidades.Pessoa;
+
+@Singleton
+public class Repositorio {
+
+	private Map<String, Pessoa> mapPessoa = new HashMap();
+	private Map<Integer, Conta> mapConta = new HashMap();
+
+	
+
+	
+	public Map<String, Pessoa> getMapPessoa() {
+		return mapPessoa;
+	}
+	
+	public Map<Integer, Conta> getMapConta() {
+		return mapConta;
+	}
+	
+}
