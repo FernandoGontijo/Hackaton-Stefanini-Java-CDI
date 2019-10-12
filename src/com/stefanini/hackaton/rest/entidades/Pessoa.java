@@ -1,11 +1,22 @@
 package com.stefanini.hackaton.rest.entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name="pessoa")
 public class Pessoa {
 
+	@Id
+	private String id;
 	
+
 	private String nome;
 	private String cpf;
 	
+	@Transient
 	private Conta conta;
 	
 	public Conta getConta() {
@@ -26,5 +37,14 @@ public class Pessoa {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	
+	
 	
 }

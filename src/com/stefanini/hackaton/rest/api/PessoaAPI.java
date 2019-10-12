@@ -16,6 +16,8 @@ import javax.ws.rs.core.Response;
 
 import com.stefanini.hackaton.rest.entidades.Pessoa;
 import com.stefanini.hackaton.rest.exceptions.NegocioException;
+import com.stefanini.hackaton.rest.parsers.PessoaParser;
+import com.stefanini.hackaton.rest.persistence.ConnectorBD;
 import com.stefanini.hackaton.rest.persistence.Repositorio;
 
 @Path("/pessoa")
@@ -26,17 +28,20 @@ public class PessoaAPI {
 	@Inject
 	Repositorio repositorio;
 	
+	@Inject
+	ConnectorBD bd;
+	
 	@GET
 	public Response consultar() throws NegocioException  { 
 
-		if (repositorio.getMapPessoa().isEmpty()) {
-			
-				throw new NegocioException("Nenhuma pessoa cadastrada!");
-			
-		}else {
+//		if (repositorio.getMapPessoa().isEmpty()) {
+//			
+//				throw new NegocioException("Nenhuma pessoa cadastrada!");
+//			
+//		}else {
 		
-		return Response.ok(repositorio.getMapPessoa()).build();
-		}
+		return Response.ok(bd.getPessoa()).build();
+		
 	}
 		
 	@GET
@@ -62,7 +67,7 @@ public class PessoaAPI {
 					
 			if (repositorio.getMapPessoa().containsKey(pessoa.getCpf())) {
 				
-				throw new NegocioException("Este cpf " + pessoa.getCpf() + " já foi cadastrado!");
+				throw new NegocioException("Este cpf " + pessoa.getCpf() + " jï¿½ foi cadastrado!");
 				
 			} else {
 				
@@ -80,7 +85,7 @@ public class PessoaAPI {
 		
 		if (repositorio.getMapPessoa().containsKey(pessoa.getCpf())) {
 			
-			throw new NegocioException("Esta pessoa já foi cadastrada!");
+			throw new NegocioException("Esta pessoa jï¿½ foi cadastrada!");
 			
 		} else {
 			
