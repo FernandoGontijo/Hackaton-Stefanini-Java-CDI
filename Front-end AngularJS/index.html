@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="appPrincipal">
+
+<head>
+    <title>Curso AngularJS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="services/login-service.js"></script>
+    <script src="controllers/home-controller.js"></script>
+    <script src="controllers/login-controller.js"></script>
+    <script src="controllers/recuperarSenha-controller.js"></script>
+</head>
+
+<body ng-controller="HomeController as homeCtrl">
+    <div ng-controller="LoginController as loginCtrl" ng-if="$root.telaSelecionada === 'LOGIN'">
+        <form ng-submit="loginCtrl.login(loginCtrl.usuario)">
+            <label>E-mail</label>
+            <input type="email" ng-required="true" ng-model="loginCtrl.usuario.email">
+            <label>Senha</label>
+            <input type="password" ng-required="true" ng-model="loginCtrl.usuario.senha">
+            <input type="submit" value="Entrar">
+            <input type="button" ng-click="homeCtrl.abrirTelaRecuperarSenha()" value="Esqueci minha senha">
+        </form>
+    </div>
+    <div ng-controller="RecuperarSenhaController as recSenhaCtrl" ng-if="$root.telaSelecionada === 'RECUPERAR_SENHA'">
+        <form ng-submit="recSenhaCtrl.recuperarSenha()">
+            <label>Informe seu e-mail para recuperar sua senha</label>
+            <input type="email">
+            <input type="submit" value="Recuperar Senha">
+            <input type="button" ng-click="recSenhaCtrl.voltar()" value="Voltar">
+        </form>
+    </div>
+    <div ng-if="$root.telaSelecionada === 'HOME'">
+        Olá {{homeCtrl.service.usuario.email}}
+    </div>
+</body>
+
+</html>
