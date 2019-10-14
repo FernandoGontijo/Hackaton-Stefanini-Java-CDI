@@ -4,6 +4,8 @@
 <head>
 
         <title>Cadastro Usuário</title>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
         <script src="angular.min.js"></script>
         <script src="app.js"></script>
 
@@ -13,38 +15,29 @@
 
 <body ng-controller="HomeController as homeCtrl">
 
-    <div>
-        <form>
+    <div ng-controller="CadastroController as cadastroCtrl" class="jumbotron">
+        <form ng-submit="cadastroCtrl.cadastrar(cadastroCtrl.user)">
 
-            <label>Nome:</label>
-            <input type="text" placeholder="Nome"> <br/><br/>
+           
+            <input type="text" class="form-control" ng-required="true" ng-model="cadastroCtrl.user.nome" placeholder="Nome"> <br/>
 
-            <label>CPF:</label>
-            <input type="text" placeholder="000.000.000-00"><br/><br/>
+            <input type="text" class="form-control" ng-required="true" ng-model="cadastroCtrl.user.cpf" placeholder="CPF"><br/>
 
+            <input type="text" class="form-control" ng-required="true" ng-model="cadastroCtrl.user.agencia" placeholder="Agencia"><br/>
 
-            <label>Agência:</label>
-            <input type="text" placeholder="XXXX"><br/><br/>
+            <input type="text" class="form-control" ng-required="true" ng-model="cadastroCtrl.user.conta" placeholder="Numero da Conta"><br/>
 
+            <input type="password" class="form-control" ng-required="true" ng-model="cadastroCtrl.user.senha" placeholder="Senha"><br/>
 
-            <label>Número da Conta:</label>
-            <input type="text" placeholder="XXXXX-X"><br/><br/>
+            <input class="btn btn-primary btn-block" type="submit" value="Cadastrar"><br/>
 
-
-            <label>Senha:</label>
-            <input type="password" placeholder="Senha"><br/><br/>
+            <input class="btn btn-primary btn-block" type="button" value="voltar"><br/>
 
         </form>
 
     </div>
 
-     <div>
-            <input type="submit" value="Cadastrar"> 
-
-            <input type="submit" value="voltar">
-
-     </div>
-
+   
 
 </body>
 

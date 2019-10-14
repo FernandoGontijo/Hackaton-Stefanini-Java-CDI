@@ -1,7 +1,5 @@
 package com.stefanini.hackaton.rest.parsers;
 
-import org.apache.xbean.finder.AnnotationFinder.SubArchive.E;
-
 import com.stefanini.hackaton.rest.dto.PessoaDTO;
 import com.stefanini.hackaton.rest.entidades.Pessoa;
 

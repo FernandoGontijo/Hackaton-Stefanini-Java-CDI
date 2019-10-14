@@ -1,5 +1,4 @@
-moduloPrincipal.controller("LoginController",
-    LoginController);
+moduloPrincipal.controller("LoginController", LoginController);
 
 LoginController.$inject = ["$scope", "$rootScope", "LoginService"];
 

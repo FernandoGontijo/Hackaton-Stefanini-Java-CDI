@@ -1,7 +1,5 @@
 package com.stefanini.hackaton.rest.api;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;

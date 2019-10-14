@@ -3,6 +3,7 @@
 
 <head>
     <title>Curso AngularJS</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
@@ -13,27 +14,27 @@
 </head>
 
 <body ng-controller="HomeController as homeCtrl">
-    <div ng-controller="LoginController as loginCtrl" ng-if="$root.telaSelecionada === 'LOGIN'">
+  
+    <div class="jumbotron" ng-controller="LoginController as loginCtrl" ng-if="$root.telaSelecionada === 'LOGIN'">
         <form ng-submit="loginCtrl.login(loginCtrl.usuario)">
-            <label>E-mail</label>
-            <input type="email" ng-required="true" ng-model="loginCtrl.usuario.email">
-            <label>Senha</label>
-            <input type="password" ng-required="true" ng-model="loginCtrl.usuario.senha">
-            <input type="submit" value="Entrar">
-            <input type="button" ng-click="homeCtrl.abrirTelaRecuperarSenha()" value="Esqueci minha senha">
+         
+            <input class="form-control" type="email" ng-required="true" ng-model="loginCtrl.usuario.email" placeholder="E-mail"><br/>
+            <input class="form-control" type="password" ng-required="true" ng-model="loginCtrl.usuario.senha" placeholder="Senha"><br/>
+            <input class="btn btn-primary btn-block" type="submit" value="Entrar"><br/>
+            <input class="btn btn-primary btn-block" type="button" ng-click="homeCtrl.abrirTelaRecuperarSenha()" value="Esqueci minha senha"><br/>
         </form>
     </div>
-    <div ng-controller="RecuperarSenhaController as recSenhaCtrl" ng-if="$root.telaSelecionada === 'RECUPERAR_SENHA'">
+    <div class="jumbotron" ng-controller="RecuperarSenhaController as recSenhaCtrl" ng-if="$root.telaSelecionada === 'RECUPERAR_SENHA'">
         <form ng-submit="recSenhaCtrl.recuperarSenha()">
-            <label>Informe seu e-mail para recuperar sua senha</label>
-            <input type="email">
-            <input type="submit" value="Recuperar Senha">
-            <input type="button" ng-click="recSenhaCtrl.voltar()" value="Voltar">
+            <input class="form-control" type="email" placeholder="Informe seu e-mail"><br/>
+            <input  class="btn btn-primary btn-block"type="submit" value="Recuperar Senha"><br/>
+            <input class="btn btn-primary btn-block" type="button" ng-click="recSenhaCtrl.voltar()" value="Voltar"><br/>
         </form>
     </div>
-    <div ng-if="$root.telaSelecionada === 'HOME'">
+    <div class="jumbotron" ng-if="$root.telaSelecionada === 'HOME'">
         Olá {{homeCtrl.service.usuario.email}}
     </div>
+
 </body>
 
 </html>
